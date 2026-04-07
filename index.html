@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposition d'Accompagnement - M. TATIBOUET</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+    <style>
+        :root {
+            --primary: #2C3E50;
+            --secondary: #E74C3C;
+            --accent: #27AE60;
+            --bg-color: #F8F9F9;
+            --text-color: #333;
+            --card-bg: #FFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Tabs Navigation */
+        .tabs {
+            display: flex;
+            overflow-x: auto;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 2rem;
+            scrollbar-width: none;
+        }
+        
+        .tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--secondary);
+        }
+
+        .card.solution {
+            border-left-color: var(--accent);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .badge {
+            background: #eee;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: normal;
+            color: #555;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #555;
+            background: #f4f4f4;
+            padding: 1rem;
+            border-left: 3px solid #ccc;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* Diagram Container */
+        .mermaid-wrapper {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow-x: auto;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Proposition Sur-Mesure</h1>
+        <p>Destinée à Matthieu TATIBOUET - Global Grain Manager</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'diagnostic')">1. Diagnostic</button>
+            <button class="tab-btn" onclick="openTab(event, 'logigramme')">2. Logigramme de Décision</button>
+            <button class="tab-btn" onclick="openTab(event, 'proposition')">3. Notre Proposition</button>
+        </div>
+
+        <div id="diagnostic" class="tab-content active">
+            <h2>Les "Pain Points" Identifiés</h2>
+            <p style="margin-bottom: 1.5rem; color: #666;">Synthèse des points de friction majeurs freinant la prise de décision sereine.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>P1 & P2: Data-Prep Chronophage <span class="badge">Douleur: 5/5</span></h3>
+                    <p>Forte dépendance à des fichiers Excel volumineux ("monstres") pour consolider les données internes et externes.</p>
+                    <div class="quote">
+                        "Le fait de collecter et préparer la donnée, ça prend autant, voire plus de temps que de l'analyser. C'est ça, le vrai sujet."
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>P3: Consolidation Globale <span class="badge">Douleur: 4/5</span></h3>
+                    <p>Hétérogénéité des outils et formats selon les pays, rendant complexe la vision globale des positions.</p>
+                    <div class="quote">
+                        "Les gens ont des outils différents selon les pays... ça complique vraiment la consolidation."
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="logigramme" class="tab-content">
+            <h2>Arbre de résolution</h2>
+            <p style="margin-bottom: 1.5rem; color: #666;">Comment nous ciblons la douleur ayant le plus fort impact opérationnel.</p>
+            
+            <div class="mermaid-wrapper">
+                <pre class="mermaid">
+flowchart TD
+    Q[Diagnostic : Où se situe la douleur principale ?]
+    
+    Q --> A{Perte de temps sur la<br/>Data-Prep & Excels monstres ?}
+    
+    A -->|Oui| P1[PAIN P1 & P2<br/>Dépendance à Excel & Data-Prep]
+    P1 --> E1[Preuves & Scores<br/>Douleur 5/5, Impact 5/5]
+    E1 --> M1[MODULE A<br/>Pilote Excel & Data-Prep]
+    M1 --> L1[Livrables clés<br/>Cartographie & Automatisations]
+    L1 --> I1[Impact<br/>Bande passante libérée]
+    
+    A -->|Non| B{Lourdeur de la<br/>consolidation globale ?}
+    B -->|Oui| P3[PAIN P3<br/>Reporting multi-pays]
+                </pre>
+            </div>
+        </div>
+
+        <div id="proposition" class="tab-content">
+            <h2>Module A : Pilote "Excel & Data-Prep"</h2>
+            <p style="margin-bottom: 1.5rem; color: #666;">Réduire la surcharge cognitive liée à la fiabilité des données pour se reconcentrer sur la lecture des marchés.</p>
+
+            <div class="card solution">
+                <h3>Objectifs du Pilote</h3>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                    <li>Automatiser 60–80 % de la préparation de données sur 1 à 2 fichiers critiques.</li>
+                    <li>Stabiliser la structure pour éviter les erreurs de manipulation.</li>
+                    <li>Rendre la mise à jour quasi instantanée.</li>
+                </ul>
+                
+                <h3>Livrables Clés</h3>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                    <li>Cartographie détaillée des flux de l'Excel "monstre" ciblé.</li>
+                    <li>Nouvelle version restructurée avec contrôles de cohérence visibles.</li>
+                    <li>Mini-guide d'usage et session de transfert de compétences.</li>
+                </ul>
+
+                <h3>Impacts Attendus (ROI)</h3>
+                <ul style="margin-left: 1.5rem;">
+                    <li><strong>Gain de temps brut :</strong> Réduction drastique des heures passées en consolidation.</li>
+                    <li><strong>Sérénité :</strong> Décisions stratégiques prises avec confiance.</li>
+                    <li><strong>Proactivité :</strong> Dégager du temps pour coacher les acheteurs locaux (US, Espagne, etc.).</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
